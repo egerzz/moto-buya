@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ürünler | MOTO-BUYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============================= NAVBAR ============================= -->
+  <nav class="navbar navbar-expand-lg navbar-dark zp-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">MOTO<span class="zp-brand-dot">-</span>BUYA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#anaMenu" aria-label="Menüyü aç/kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="anaMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="urunler.html">Ürünler</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-light" data-zp-theme-toggle type="button">Aydınlık Mod</button>
+          <a href="giris.html" class="btn btn-sm btn-outline-light">Giriş Yap</a>
+          <a href="sepet.html" class="btn btn-sm btn-warning position-relative">
+            <i class="bi bi-bag"></i> Sepet
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger zp-cart-badge d-none" data-zp-cart-count>0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <!-- BREADCRUMB bileşeni -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Ana Sayfa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
+      </ol>
+    </nav>
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+      <h1 class="h2 mb-0">Tüm Ekipmanlar <span class="text-muted fs-6" id="urunSayisi" aria-live="polite"></span></h1>
+
+      <div class="d-flex gap-2">
+        <!-- Mobilde filtreyi açan OFFCANVAS tetikleyici -->
+        <button class="btn btn-outline-dark d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtreOffcanvas">
+          Filtrele
+        </button>
+
+        <!-- Sıralama DROPDOWN -->
+        <div class="dropdown">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="siralaBtn">
+            Sırala: Öne Çıkanlar
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#" data-sirala="varsayilan">Öne Çıkanlar</a></li>
+            <li><a class="dropdown-item" href="#" data-sirala="artan">Fiyat: Düşükten Yükseğe</a></li>
+            <li><a class="dropdown-item" href="#" data-sirala="azalan">Fiyat: Yüksekten Düşüğe</a></li>
+            <li><a class="dropdown-item" href="#" data-sirala="yeni">En Yeniler</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="aramaKutusu" class="visually-hidden">Ürün ara</label>
+      <input type="search" class="form-control" id="aramaKutusu" placeholder="Ekipman ara (örn. kask, mont, eldiven)...">
+    </div>
+
+    <div class="row">
+      <!-- ===================== MASAÜSTÜ FİLTRE (SOL SÜTUN) ===================== -->
+      <aside class="col-lg-3 d-none d-lg-block">
+        <form>
+          <h2 class="h6 text-uppercase text-muted">Kategori</h2>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="katKask" data-kat="kask"><label class="form-check-label" for="katKask">Kask <span class="text-muted">(2)</span></label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="katMont" data-kat="mont"><label class="form-check-label" for="katMont">Mont &amp; Ceket <span class="text-muted">(1)</span></label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="katEldiven" data-kat="eldiven"><label class="form-check-label" for="katEldiven">Eldiven <span class="text-muted">(1)</span></label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="katBot" data-kat="bot"><label class="form-check-label" for="katBot">Bot <span class="text-muted">(1)</span></label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="katAksesuar" data-kat="aksesuar"><label class="form-check-label" for="katAksesuar">Aksesuar <span class="text-muted">(1)</span></label></div>
+
+          <hr>
+          <h2 class="h6 text-uppercase text-muted">Fiyat Aralığı</h2>
+          <label for="fiyatRange" class="form-label small">En fazla: <strong id="fiyatEtiket">15.000₺</strong></label>
+          <input type="range" class="form-range" min="0" max="15000" step="500" value="15000" id="fiyatRange">
+
+          <hr>
+          <h2 class="h6 text-uppercase text-muted">Puan</h2>
+          <div class="form-check"><input class="form-check-input" type="radio" name="puan" id="puan0" value="0" checked><label class="form-check-label" for="puan0">Tümü</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="puan" id="puan4" value="4"><label class="form-check-label" for="puan4">⭐⭐⭐⭐ ve üzeri</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="puan" id="puan3" value="3"><label class="form-check-label" for="puan3">⭐⭐⭐ ve üzeri</label></div>
+
+          <button type="button" class="btn btn-sm zp-btn-primary mt-3 w-100" id="filtreTemizle">Filtreleri Temizle</button>
+        </form>
+      </aside>
+
+      <!-- ===================== ÜRÜN GRİDİ ===================== -->
+      <div class="col-lg-9">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+
+          <div class="col zp-urun" data-id="v001" data-kategori="kask" data-fiyat="12450" data-puan="4.5" data-ad="Karbon Fiber Full-Face Kask">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/karbon-full-face-kask.webp" class="zp-card-img" alt="Karbon Fiber Full-Face Kask" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <span class="badge text-bg-warning align-self-start mb-2">Çok Satan</span>
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v001" class="text-decoration-none text-reset stretched-link">Karbon Fiber Full-Face Kask</a></h3>
+                <p class="card-text text-muted small">ECE 22.06 · 1.250 g karbon kabuk</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="zp-price">₺12.450</span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v001" data-zp-gorsel="assets/img/urunler/karbon-full-face-kask.webp" data-zp-fiyat="12450" data-zp-emoji="🪖" data-zp-urun-adi="Karbon Fiber Full-Face Kask">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col zp-urun" data-id="v002" data-kategori="mont" data-fiyat="9600" data-puan="4.0" data-ad="Deri Racing Mont">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/deri-racing-mont.webp" class="zp-card-img" alt="Deri Racing Mont" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <span class="badge text-bg-danger align-self-start mb-2">-%20</span>
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v002" class="text-decoration-none text-reset stretched-link">Deri Racing Mont</a></h3>
+                <p class="card-text text-muted small">Dana derisi · CE Level 2 koruma</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span><span class="zp-price">₺9.600</span> <span class="zp-price-old">₺12.000</span></span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v002" data-zp-gorsel="assets/img/urunler/deri-racing-mont.webp" data-zp-fiyat="9600" data-zp-emoji="🧥" data-zp-urun-adi="Deri Racing Mont">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col zp-urun" data-id="v003" data-kategori="eldiven" data-fiyat="2750" data-puan="4.8" data-ad="Karbon Korumalı Eldiven">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/karbon-korumali-eldiven.webp" class="zp-card-img" alt="Karbon Korumalı Eldiven" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <span class="badge text-bg-info align-self-start mb-2">Yeni</span>
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v003" class="text-decoration-none text-reset stretched-link">Karbon Korumalı Eldiven</a></h3>
+                <p class="card-text text-muted small">Keçi derisi · karbon knuckle</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="zp-price">₺2.750</span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v003" data-zp-gorsel="assets/img/urunler/karbon-korumali-eldiven.webp" data-zp-fiyat="2750" data-zp-emoji="🧤" data-zp-urun-adi="Karbon Korumalı Eldiven">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col zp-urun" data-id="v004" data-kategori="bot" data-fiyat="7890" data-puan="3.5" data-ad="Su Geçirmez Touring Bot">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/su-gecirmez-touring-bot.webp" class="zp-card-img" alt="Su Geçirmez Touring Bot" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <span class="badge text-bg-secondary align-self-start mb-2">Sınırlı Stok</span>
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v004" class="text-decoration-none text-reset stretched-link">Su Geçirmez Touring Bot</a></h3>
+                <p class="card-text text-muted small">Gore-Tex · su geçirmez</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="zp-price">₺7.890</span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v004" data-zp-gorsel="assets/img/urunler/su-gecirmez-touring-bot.webp" data-zp-fiyat="7890" data-zp-emoji="🥾" data-zp-urun-adi="Su Geçirmez Touring Bot">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col zp-urun" data-id="v005" data-kategori="aksesuar" data-fiyat="4610" data-puan="4.2" data-ad="Bluetooth İnterkom Sistemi">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/bluetooth-interkom.webp" class="zp-card-img" alt="Bluetooth İnterkom Sistemi" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v005" class="text-decoration-none text-reset stretched-link">Bluetooth İnterkom Sistemi</a></h3>
+                <p class="card-text text-muted small">Mesh bağlantı · 1,2 km menzil</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="zp-price">₺4.610</span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v005" data-zp-gorsel="assets/img/urunler/bluetooth-interkom.webp" data-zp-fiyat="4610" data-zp-emoji="🎧" data-zp-urun-adi="Bluetooth İnterkom Sistemi">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col zp-urun" data-id="v006" data-kategori="kask" data-fiyat="8380" data-puan="3.0" data-ad="Modüler Touring Kask">
+            <div class="card zp-card h-100">
+              <div class="zp-card-img-wrap"><img src="../assets/img/urunler/moduler-touring-kask.webp" class="zp-card-img" alt="Modüler Touring Kask" width="800" height="800" loading="lazy"></div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title"><a href="urun-detay.html?id=v006" class="text-decoration-none text-reset stretched-link">Modüler Touring Kask</a></h3>
+                <p class="card-text text-muted small">Çene açılır · güneş vizörlü</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="zp-price">₺8.380</span>
+                  <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v006" data-zp-gorsel="assets/img/urunler/moduler-touring-kask.webp" data-zp-fiyat="8380" data-zp-emoji="🪖" data-zp-urun-adi="Modüler Touring Kask">+ Sepet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sonucYok" class="text-center py-5 d-none">
+          <div class="display-3">🔍</div>
+          <h2 class="h5 mt-2">Aradığınız kriterlere uygun ürün bulunamadı</h2>
+          <button class="btn btn-outline-dark mt-2" id="sonucTemizle">Filtreleri Temizle</button>
+        </div>
+
+        <!-- ===================== SAYFALAMA (PAGINATION) ===================== -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MOBİL FİLTRE (OFFCANVAS) ===================== -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="filtreOffcanvas" aria-labelledby="filtreOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="filtreOffcanvasLabel">Filtrele</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
+    </div>
+    <div class="offcanvas-body">
+      <h3 class="h6 text-uppercase text-muted">Kategori</h3>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mKatKask" data-kat="kask"><label class="form-check-label" for="mKatKask">Kask</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mKatMont" data-kat="mont"><label class="form-check-label" for="mKatMont">Mont &amp; Ceket</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mKatEldiven" data-kat="eldiven"><label class="form-check-label" for="mKatEldiven">Eldiven</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mKatBot" data-kat="bot"><label class="form-check-label" for="mKatBot">Bot</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="mKatAksesuar" data-kat="aksesuar"><label class="form-check-label" for="mKatAksesuar">Aksesuar</label></div>
+      <button class="btn zp-btn-primary w-100 mt-3" data-bs-dismiss="offcanvas">Sonuçları Göster</button>
+    </div>
+  </div>
+
+  <!-- ============================= FOOTER (SADELEŞTİRİLMİŞ) ============================= -->
+  <footer class="zp-footer py-4 mt-5">
+    <div class="container text-center small text-white-50">
+      &copy; 2026 Ege-Erez. egerzz.
+    </div>
+  </footer>
+
+  <button class="zp-scrolltop" aria-label="Sayfa başına dön">↑</button>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const kartlar = Array.from(document.querySelectorAll(".zp-urun"));
+      const grid = kartlar[0].parentElement;
+      const orijinalSira = [...kartlar];
+      const aramaKutusu = document.getElementById("aramaKutusu");
+      const fiyatRange = document.getElementById("fiyatRange");
+      const kategoriKutulari = document.querySelectorAll("[data-kat]");
+      const trKucuk = (t) => t.toLocaleLowerCase("tr-TR");
+
+      function filtrele() {
+        const aranan = trKucuk(aramaKutusu.value.trim());
+        const seciliKat = new Set([...kategoriKutulari].filter(c => c.checked).map(c => c.dataset.kat));
+        const maxFiyat = parseInt(fiyatRange.value, 10);
+        const minPuan = parseFloat(document.querySelector('input[name="puan"]:checked').value);
+        let gorunen = 0;
+
+        kartlar.forEach((k) => {
+          const uygun =
+            (!aranan || trKucuk(k.dataset.ad).includes(aranan) || k.dataset.kategori.includes(aranan)) &&
+            (seciliKat.size === 0 || seciliKat.has(k.dataset.kategori)) &&
+            parseFloat(k.dataset.fiyat) <= maxFiyat &&
+            parseFloat(k.dataset.puan) >= minPuan;
+          k.classList.toggle("d-none", !uygun);
+          if (uygun) gorunen++;
+        });
+
+        document.getElementById("fiyatEtiket").textContent = maxFiyat.toLocaleString("tr-TR") + "₺";
+        document.getElementById("urunSayisi").textContent = `(${gorunen} ürün)`;
+        document.getElementById("sonucYok").classList.toggle("d-none", gorunen > 0);
+      }
+
+      // Masaüstü ve mobil checkbox'ları senkron tut
+      kategoriKutulari.forEach((c) => c.addEventListener("change", () => {
+        kategoriKutulari.forEach((o) => { if (o.dataset.kat === c.dataset.kat) o.checked = c.checked; });
+        filtrele();
+      }));
+      aramaKutusu.addEventListener("input", filtrele);
+      fiyatRange.addEventListener("input", filtrele);
+      document.querySelectorAll('input[name="puan"]').forEach(r => r.addEventListener("change", filtrele));
+
+      function temizle() {
+        aramaKutusu.value = "";
+        fiyatRange.value = 15000;
+        kategoriKutulari.forEach(c => c.checked = false);
+        document.getElementById("puan0").checked = true;
+        filtrele();
+      }
+      document.getElementById("filtreTemizle").addEventListener("click", temizle);
+      document.getElementById("sonucTemizle").addEventListener("click", temizle);
+
+      // Sıralama
+      document.querySelectorAll("[data-sirala]").forEach((a) => a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const tur = a.dataset.sirala;
+        let liste = [...orijinalSira];
+        if (tur === "artan") liste.sort((x, y) => x.dataset.fiyat - y.dataset.fiyat);
+        if (tur === "azalan") liste.sort((x, y) => y.dataset.fiyat - x.dataset.fiyat);
+        if (tur === "yeni") liste.reverse();
+        liste.forEach((k) => grid.appendChild(k));
+        document.getElementById("siralaBtn").textContent = "Sırala: " + a.textContent;
+      }));
+
+      // URL parametreleri: ?q=vazo&kategori=seramik
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("q")) aramaKutusu.value = params.get("q");
+      const kat = params.get("kategori");
+      if (kat) kategoriKutulari.forEach(c => { if (c.dataset.kat === kat) c.checked = true; });
+      filtrele();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim | MOTO.BUYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark zp-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">MOTO<span class="zp-brand-dot">-</span>BUYA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#anaMenu" aria-label="Menüyü aç/kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="anaMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="urunler.html">Ürünler</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-light" data-zp-theme-toggle type="button">Aydınlık Mod</button>
+          <a href="giris.html" class="btn btn-sm btn-outline-light">Giriş Yap</a>
+          <a href="sepet.html" class="btn btn-sm btn-warning position-relative">
+            <i class="bi bi-bag"></i> Sepet
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger zp-cart-badge d-none" data-zp-cart-count>0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="zp-hero py-5">
+    <div class="container text-center position-relative">
+      <p class="zp-eyebrow mb-2">İletişim</p>
+      <h1 class="display-5 mb-2">Bize Ulaşın</h1>
+      <p class="mb-0" style="color: rgba(238,232,234,.78)">Beden danışmanlığı, ürün soruları veya işbirliği teklifleriniz için buradayız.</p>
+    </div>
+  </header>
+
+  <div class="container zp-section">
+    <div class="row g-4 mb-5 text-center">
+      <div class="col-md-4">
+        <div class="zp-card p-4 h-100">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-geo-alt"></i></div>
+          <h2 class="h6">Adres</h2>
+          <p class="text-muted small mb-0">Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="zp-card p-4 h-100">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-envelope"></i></div>
+          <h2 class="h6">E-posta</h2>
+          <p class="text-muted small mb-0">lorem@ipsum.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="zp-card p-4 h-100">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-telephone"></i></div>
+          <h2 class="h6">Telefon</h2>
+          <p class="text-muted small mb-0">0 (555) 000 00 00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="h4 mb-3">Mesaj Gönderin</h2>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="iletisimAd" class="form-label">Ad Soyad</label>
+              <input type="text" class="form-control" id="iletisimAd" required>
+              <div class="invalid-feedback">Adınızı girin.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="iletisimEmail" class="form-label">E-posta</label>
+              <input type="email" class="form-control" id="iletisimEmail" required>
+              <div class="invalid-feedback">Geçerli bir e-posta girin.</div>
+            </div>
+            <div class="col-12">
+              <label for="iletisimKonu" class="form-label">Konu</label>
+              <select class="form-select" id="iletisimKonu" required>
+                <option value="" selected disabled>Seçiniz...</option>
+                <option>Sipariş Sorusu</option>
+                <option>Beden Danışmanlığı</option>
+                <option>İade / Değişim</option>
+                <option>İşbirliği Teklifi</option>
+                <option>Diğer</option>
+              </select>
+              <div class="invalid-feedback">Lütfen bir konu seçin.</div>
+            </div>
+            <div class="col-12">
+              <label for="iletisimMesaj" class="form-label">Mesajınız</label>
+              <textarea class="form-control" id="iletisimMesaj" rows="5" required minlength="10"></textarea>
+              <div class="invalid-feedback">Mesajınız en az 10 karakter olmalı.</div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn zp-btn-primary">Gönder</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-5">
+        <h2 class="h4 mb-3">Sıkça Sorulanlar</h2>
+        <div class="accordion" id="iletisimSSS">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#iSSS1">Siparişimi nasıl takip ederim?</button>
+            </h3>
+            <div id="iSSS1" class="accordion-collapse collapse show" data-bs-parent="#iletisimSSS">
+              <div class="accordion-body">Hesabım &gt; Siparişlerim bölümünden kargo takip numaranızı görebilirsiniz.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iSSS2">Toptan satış yapıyor musunuz?</button>
+            </h3>
+            <div id="iSSS2" class="accordion-collapse collapse" data-bs-parent="#iletisimSSS">
+              <div class="accordion-body">Evet, motosiklet kulüpleri ve kurumsal filolar için 20 adet ve üzeri siparişlerde bu formu kullanarak bizimle iletişime geçebilirsiniz.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mağaza konumu (Google Haritalar yerleştirme) -->
+        <div class="zp-card zp-map mt-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.298629654616!2d29.12974437626346!3d36.61919777788108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c04566e8694e83%3A0x12f039335ae95190!2sMOTOBUYA!5e0!3m2!1str!2str!4v1792365544170!5m2!1str!2str"
+            title="MOTO.BUYA mağaza konumu"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="zp-footer py-4 mt-4">
+    <div class="container text-center small text-white-50">&copy; 2026 MOTO.BUYA — egerzz.</div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

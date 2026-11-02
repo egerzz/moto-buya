@@ -1,0 +1,1032 @@
+/* MOTO.BUYA - özel stil dosyası (Bootstrap 5.3 üzerine) */
+
+/* -------------------------------------------------------------------------
+   1) TASARIM TOKENLARI (DESIGN TOKENS)
+------------------------------------------------------------------------- */
+:root {
+  /* Marka renkleri */
+  --zp-paper: #f3eeef;       /* Sayfa zemini */
+  --zp-ink: #161417;         /* Ana metin rengi */
+  --zp-forest: #0e0c0f;      /* Birincil marka rengi */
+  --zp-forest-light: #1f1b21;/* Hover tonu */
+  --zp-ochre: #aa2424f6;       /* Vurgu rengi */
+  --zp-clay: #ac2323;        /* İkincil vurgu */
+  --zp-line: #d9d0d3;        /* Kenarlık / ayraç rengi */
+  --zp-card: #fbf9f9;
+  --zp-snow: #eee8ea;
+  --zp-accent-ink: #aa2424f6;
+    --zp-ochre-rgb: 170, 36, 36;
+
+  /* Tipografi */
+  --zp-font-display: "Cormorant Garamond", Georgia, serif;
+  --zp-font-body: "Nunito Sans", system-ui, -apple-system, sans-serif;
+
+  /* Boşluk / köşe ölçeği */
+  --zp-radius-sm: 2px;
+  --zp-radius-md: 3px;
+  --zp-space-section: clamp(3.5rem, 7vw, 7rem);
+
+  /* Bootstrap değişkenleri */
+  --bs-primary: var(--zp-forest);
+  --bs-primary-rgb: 14, 12, 15;
+  --bs-link-color: var(--zp-forest);
+  --bs-link-hover-color: var(--zp-ochre);
+  --bs-link-color-rgb: 14, 12, 15;
+  --bs-link-hover-color-rgb: 170, 36, 36;
+  --bs-body-font-family: var(--zp-font-body);
+  --bs-body-color: var(--zp-ink);
+  --bs-body-bg: var(--zp-paper);
+  --bs-tertiary-bg: #ebe4e6;
+  --bs-tertiary-bg-rgb: 235, 228, 230;
+  --bs-border-color: #ddd2d6;
+  --bs-secondary-color: rgba(22, 20, 23, 0.62);
+  --bs-warning-rgb: 170, 36, 36;
+  --bs-danger-rgb: 170, 36, 36;
+  --bs-success-rgb: 170, 36, 36;
+  --bs-info-rgb: 238, 232, 234;
+  --bs-secondary-rgb: 52, 46, 54;
+    --bs-code-color: #e04848;
+}
+
+/* Koyu tema */
+[data-bs-theme="dark"] {
+  --zp-paper: #0c0b0d;
+  --zp-ink: #ebe5e7;
+  --zp-card: #151316;
+  --zp-line: #2a252b;
+  --zp-accent-ink: var(--zp-ochre);
+  --bs-body-bg: var(--zp-paper);
+  --bs-body-color: var(--zp-ink);
+  --bs-heading-color: #f4eff1;
+  --bs-emphasis-color: #ffffff;
+  --bs-link-color-rgb: 224, 72, 72;
+  --bs-link-hover-color-rgb: 238, 232, 234;
+  --bs-tertiary-bg: #121013;
+  --bs-tertiary-bg-rgb: 18, 16, 19;
+  --bs-secondary-bg: #1a171b;
+  --bs-border-color: #2e2830;
+  --bs-secondary-color: rgba(235, 229, 231, 0.6);
+}
+
+/* -------------------------------------------------------------------------
+   2) TEMEL / GENEL KURALLAR
+------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* sabit navbar'ın altına düzgün kaysın */
+}
+
+body {
+  font-family: var(--zp-font-body);
+  background-color: var(--zp-paper);
+  color: var(--zp-ink);
+}
+
+h1, h2, h3, h4, .display-font {
+  font-family: var(--zp-font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Odak halkası */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.form-control:focus-visible {
+  outline: 3px solid var(--zp-ochre);
+  outline-offset: 2px;
+}
+
+/* Azaltılmış hareket tercihi */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   3) NAVBAR
+------------------------------------------------------------------------- */
+.zp-navbar {
+  background-color: var(--zp-forest);
+  border-bottom: 1px solid #1f1b21;
+  padding-block: 0.9rem;
+  
+}
+
+.zp-navbar .navbar-brand {
+  font-family: var(--zp-font-display);
+  font-size: 1.5rem;
+  color: var(--zp-paper) !important;
+}
+
+.zp-navbar .nav-link {
+  color: rgba(247, 244, 238, 0.85) !important;
+  transition: color 0.15s ease;
+}
+
+.zp-navbar .nav-link:hover,
+.zp-navbar .nav-link.active {
+  color: var(--zp-ochre) !important;
+}
+
+/* Sepet ikonu üstündeki sayaç rozeti */
+.zp-cart-badge {
+  transform: translate(-40%, -40%);
+  font-size: 0.65rem;
+}
+
+/* -------------------------------------------------------------------------
+   4) KAHRAMAN (HERO) BÖLÜMÜ
+------------------------------------------------------------------------- */
+.zp-hero {
+  background: linear-gradient(160deg, var(--zp-forest) 0%, var(--zp-forest-light) 100%);
+  color: var(--zp-paper);
+  padding-block: var(--zp-space-section);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.zp-hero-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.zp-hero .zp-eyebrow {
+  color: var(--zp-ochre);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------
+   5) KART BİLEŞENLERİ (ÜRÜN KARTI)
+------------------------------------------------------------------------- */
+.zp-card {
+  border: 1px solid var(--zp-line);
+  border-radius: var(--zp-radius-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.zp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+}
+
+.zp-card .zp-card-img-wrap {
+  aspect-ratio: 4 / 3;
+  background-color: var(--zp-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--zp-forest);
+  font-family: var(--zp-font-display);
+}
+
+.zp-price {
+  font-family: var(--zp-font-display);
+  font-weight: 600;
+  color: var(--zp-forest);
+}
+
+[data-bs-theme="dark"] .zp-price {
+  color: var(--zp-snow);
+}
+
+.zp-price-old {
+  text-decoration: line-through;
+  color: #8a8474;
+  font-size: 0.9em;
+}
+
+/* -------------------------------------------------------------------------
+   6) BÖLÜM BAŞLIKLARI VE AYRAÇLAR
+------------------------------------------------------------------------- */
+.zp-section {
+  padding-block: var(--zp-space-section);
+}
+
+.zp-section-title {
+  position: relative;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.zp-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  background-color: var(--zp-ochre);
+  border-radius: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   7) FOOTER
+------------------------------------------------------------------------- */
+.zp-footer {
+  background-color: var(--zp-ink);
+  color: var(--zp-paper);
+}
+
+.zp-footer a {
+  color: rgba(247, 244, 238, 0.75);
+  text-decoration: none;
+}
+
+.zp-footer a:hover {
+  color: var(--zp-ochre);
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------
+   8) YARDIMCI (UTILITY) SINIFLAR
+------------------------------------------------------------------------- */
+.zp-text-ochre { color: var(--zp-ochre) !important; }
+.zp-bg-forest { background-color: var(--zp-forest) !important; }
+.zp-max-w-640 { max-width: 640px; }
+.zp-letter-tight { letter-spacing: -0.02em; }
+
+/* Yukarı çık butonu */
+.zp-scrolltop {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--zp-forest);
+  color: var(--zp-paper);
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 1040;
+}
+
+.zp-scrolltop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------------------------------
+   9) KATEGORİ MOZAİĞİ (CSS GRID)
+------------------------------------------------------------------------- */
+.zp-mosaic {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 140px;
+}
+
+.zp-mosaic > a:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.zp-mosaic > a:nth-child(2) { grid-column: span 2; grid-row: span 1; }
+.zp-mosaic > a:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+.zp-mosaic > a:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+.zp-mosaic > a:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+
+.zp-mosaic-item {
+  display: block;
+  height: 100%;
+  border-radius: var(--zp-radius-md);
+  background-color: var(--zp-forest);
+  color: var(--zp-paper);
+  text-decoration: none;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--zp-font-display);
+}
+
+@media (max-width: 767.98px) {
+  .zp-mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 120px;
+  }
+  .zp-mosaic > a { grid-column: span 1 !important; grid-row: span 1 !important; }
+}
+
+/* -------------------------------------------------------------------------
+   10) YAZDIRMA (PRINT) STİLLERİ
+------------------------------------------------------------------------- */
+@media print {
+  .zp-navbar, .zp-footer, .zp-scrolltop, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   11) MOTO.BUYA PREMIUM KATMANI
+------------------------------------------------------------------------- */
+body {
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+}
+
+::selection {
+  background: var(--zp-ochre);
+  color: var(--zp-forest);
+}
+
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--zp-paper); }
+::-webkit-scrollbar-thumb { background: var(--zp-clay); border-left: 2px solid var(--zp-paper); }
+
+h1, h2, h3, h4 {
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.display-4, .display-5, .display-6 { font-weight: 500; }
+
+/* --- Üst duyuru şeridi --- */
+.zp-topbar {
+  background: #070608;
+  color: rgba(238, 232, 234, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.zp-topbar .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1.5rem;
+}
+
+.zp-topbar i { color: var(--zp-ochre); margin-right: 0.4rem; }
+
+/* --- Navbar --- */
+.zp-navbar {
+  background-color: #0e0c0f;
+  border-bottom: 1px solid #1f1b21;
+  padding-block: 0.9rem;
+  /* Küsuratlı yükseklikte alt kenarda oluşan ince boşluğu kapatır */
+  box-shadow: 0 1px 0 #1f1b21;
+}
+
+.zp-navbar .navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--zp-snow) !important;
+}
+
+.zp-brand-dot { color: var(--zp-ochre); }
+
+.zp-navbar .nav-link {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(238, 232, 234, 0.72) !important;
+}
+
+.zp-navbar .nav-link,
+.zp-navbar .btn { white-space: nowrap; }
+
+@media (min-width: 992px) {
+  .zp-navbar .nav-link { padding-inline: 0.7rem !important; letter-spacing: 0.14em; }
+}
+
+@media (min-width: 1400px) {
+  .zp-navbar .nav-link { padding-inline: 0.95rem !important; }
+}
+
+.zp-navbar .dropdown-menu {
+  --bs-dropdown-bg: #141215;
+  --bs-dropdown-color: var(--zp-snow);
+  --bs-dropdown-border-color: rgba(255, 255, 255, 0.08);
+  --bs-dropdown-border-radius: 0;
+  --bs-dropdown-link-color: rgba(238, 232, 234, 0.8);
+  --bs-dropdown-link-hover-bg: rgba(var(--zp-ochre-rgb), 0.1);
+  --bs-dropdown-link-hover-color: var(--zp-ochre);
+  --bs-dropdown-link-active-bg: var(--zp-ochre);
+  --bs-dropdown-link-active-color: var(--zp-forest);
+  --bs-dropdown-divider-bg: rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+}
+
+.zp-navbar .form-control {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--zp-snow);
+}
+
+.zp-navbar .form-control::placeholder { color: rgba(238, 232, 234, 0.45); }
+
+/* --- Butonlar: keskin köşe, büyük harf, soldan dolan "süpürme" efekti --- */
+.btn {
+  border-radius: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.btn-sm { padding: 0.45rem 0.95rem; font-size: 0.66rem; letter-spacing: 0.12em; }
+.btn-lg { padding: 1rem 2.2rem; font-size: 0.8rem; }
+
+.btn-warning,
+.btn-success,
+.zp-btn-primary {
+  --bs-btn-bg: var(--zp-ochre);
+  --bs-btn-color: #ffffff;
+  --bs-btn-border-color: var(--zp-ochre);
+  --bs-btn-hover-bg: var(--zp-ochre);
+  --bs-btn-hover-color: var(--zp-forest);
+  --bs-btn-hover-border-color: var(--zp-snow);
+  --bs-btn-active-bg: var(--zp-snow);
+  --bs-btn-active-color: var(--zp-forest);
+  --bs-btn-active-border-color: var(--zp-snow);
+  --bs-btn-disabled-bg: var(--zp-ochre);
+  --bs-btn-disabled-border-color: var(--zp-ochre);
+  --bs-btn-disabled-color: #ffffff;
+}
+
+.btn-warning::before,
+.btn-success::before,
+.zp-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: var(--zp-snow);
+  z-index: -1;
+  transition: width 0.35s ease;
+}
+
+.btn-warning:hover::before,
+.btn-success:hover::before,
+.zp-btn-primary:hover::before,
+.btn-warning:focus-visible::before,
+.zp-btn-primary:focus-visible::before { width: 100%; }
+
+.btn-outline-light {
+  --bs-btn-color: var(--zp-snow);
+  --bs-btn-border-color: rgba(238, 232, 234, 0.3);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-color: var(--zp-ochre);
+  --bs-btn-hover-border-color: var(--zp-ochre);
+  --bs-btn-active-bg: rgba(var(--zp-ochre-rgb), 0.12);
+  --bs-btn-active-color: var(--zp-ochre);
+  --bs-btn-active-border-color: var(--zp-ochre);
+}
+
+.btn-outline-success {
+  --bs-btn-color: var(--zp-accent-ink);
+  --bs-btn-border-color: rgba(var(--zp-ochre-rgb), 0.55);
+  --bs-btn-hover-bg: var(--zp-ochre);
+  --bs-btn-hover-color: var(--zp-forest);
+  --bs-btn-hover-border-color: var(--zp-ochre);
+  --bs-btn-active-bg: var(--zp-ochre);
+  --bs-btn-active-color: var(--zp-forest);
+  --bs-btn-active-border-color: var(--zp-ochre);
+}
+
+.btn-outline-dark,
+.btn-outline-secondary {
+  --bs-btn-color: var(--zp-ink);
+  --bs-btn-border-color: var(--bs-border-color);
+  --bs-btn-hover-bg: var(--zp-ink);
+  --bs-btn-hover-color: var(--zp-paper);
+  --bs-btn-hover-border-color: var(--zp-ink);
+  --bs-btn-active-bg: var(--zp-ink);
+  --bs-btn-active-color: var(--zp-paper);
+  --bs-btn-active-border-color: var(--zp-ink);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--zp-accent-text);
+  --bs-btn-border-color: rgba(var(--zp-ochre-rgb), 0.5);
+  --bs-btn-hover-bg: var(--zp-ochre);
+  --bs-btn-hover-border-color: var(--zp-ochre);
+}
+
+/* --- Rozetler (badge) --- */
+.badge {
+  border-radius: 0;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.5em 0.85em;
+}
+
+.badge.text-bg-success,
+.badge.text-bg-warning { color: #ffffff !important; }
+
+.zp-cart-badge { letter-spacing: 0; padding: 0.35em 0.55em; }
+
+/* --- Hero --- */
+.zp-hero {
+  background:
+    linear-gradient(160deg, #242323 0%, #0e0c0f 100%);
+  color: var(--zp-snow);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.zp-hero > .container { z-index: 1; }
+
+.zp-hero h1 {
+  color: #f4eff1;
+  font-weight: 500;
+}
+
+.zp-hero-lg {
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: center;
+}
+
+.zp-hero-lg > .container { width: 100%; }
+
+.zp-hero-lg h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+  line-height: 1.04;
+}
+
+.zp-hero h1 em {
+  font-style: italic;
+  color: var(--zp-ochre);
+}
+
+.zp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--zp-accent-ink);
+}
+
+.zp-hero .zp-eyebrow { color: var(--zp-ochre); }
+
+.zp-eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+}
+
+.zp-hero-mark {
+  position: absolute;
+  right: -2vw;
+  bottom: -5vw;
+  font-family: var(--zp-font-display);
+  font-size: 22vw;
+  font-weight: 600;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(var(--zp-ochre-rgb), 0.12);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.zp-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.25rem;
+  list-style: none;
+  padding: 1.5rem 0 0;
+  margin: 2.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(238, 232, 234, 0.7);
+}
+
+.zp-hero-meta i { color: var(--zp-ochre); margin-right: 0.45rem; }
+
+.zp-hero .carousel { border-color: rgba(255, 255, 255, 0.08); }
+
+.carousel-indicators [data-bs-target] {
+  width: 22px;
+  height: 2px;
+  background-color: var(--zp-ochre);
+}
+
+/* --- Ürün görsel alanı ve kartlar --- */
+.zp-card {
+  border-radius: var(--zp-radius-sm);
+}
+
+[data-bs-theme="dark"] .zp-card {
+  background: linear-gradient(180deg, #171518 0%, #121013 100%);
+}
+
+.zp-card:hover { border-color: rgba(var(--zp-ochre-rgb), 0.45); }
+
+.zp-card .zp-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, #242323 0%, #0e0c0f 100%);
+  color: var(--zp-snow);
+}
+
+.zp-card-img-wrap > span {
+  filter: grayscale(1) contrast(1.1) brightness(1.15);
+  transition: transform 0.5s ease;
+}
+
+.zp-card:hover .zp-card-img-wrap > span { transform: scale(1.12); }
+
+.zp-card .zp-card-img-wrap > .fs-1 { font-size: 4rem !important; }
+
+/* --- Ürün fotoğrafları ---
+   Kartlarda kare çerçeve (1:1). Fotoğraf çerçeveyi tamamen kaplar,
+   oranı farklı bir fotoğraf gelirse taşan kısmı ortadan kırpılır. */
+.zp-card .zp-card-img-wrap:has(> .zp-card-img) { aspect-ratio: 1 / 1; }
+
+.zp-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.zp-card:hover .zp-card-img { transform: scale(1.06); }
+
+/* Sepet satırındaki küçük ürün görseli */
+.zp-sepet-gorsel {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--zp-radius-sm);
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zp-card-img { transition: none; }
+  .zp-card:hover .zp-card-img { transform: none; }
+}
+
+.zp-card .zp-slide {
+  flex-direction: column;
+  gap: 0.5rem;
+  aspect-ratio: 16 / 11;
+}
+
+@media (min-width: 992px) {
+  .zp-card .zp-slide { aspect-ratio: 4 / 5; }
+}
+
+.zp-slide .zp-slide-emoji { font-size: 4.5rem; line-height: 1; }
+
+.zp-card:hover .zp-slide > span { transform: none; }
+
+.zp-slide .zp-slide-label {
+  filter: none;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--zp-snow);
+}
+
+.zp-slide .zp-slide-sub {
+  filter: none;
+  font-family: var(--zp-font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--zp-ochre);
+}
+
+.zp-card .card-body { padding: 1.4rem; }
+
+.zp-card .card-title {
+  font-family: var(--zp-font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.zp-card .zp-price { font-size: 1.35rem; }
+
+.zp-price { color: var(--zp-ink); }
+[data-bs-theme="dark"] .zp-price { color: var(--zp-snow); }
+
+/* --- Bölüm başlıkları --- */
+.zp-section-title,
+.zp-section-title > .h3 {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+}
+
+.zp-section-title::after {
+  width: 56px;
+  height: 2px;
+  border-radius: 0;
+}
+
+/* --- Kategori mozaiği --- */
+.zp-mosaic { grid-auto-rows: 170px; }
+
+.zp-mosaic-item {
+  border-radius: var(--zp-radius-sm);
+  background:
+    linear-gradient(160deg, #242323 0%, #0e0c0f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--zp-snow);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.zp-mosaic-item::after {
+  content: "\2197";
+  position: absolute;
+  top: 1.1rem;
+  right: 1.3rem;
+  font-family: var(--zp-font-body);
+  color: var(--zp-ochre);
+  transition: transform 0.3s ease;
+}
+
+.zp-mosaic-item:hover {
+  color: var(--zp-snow);
+  border-color: rgba(var(--zp-ochre-rgb), 0.5);
+  transform: translateY(-3px);
+}
+
+.zp-mosaic-item:hover::after { transform: translate(3px, -3px); }
+
+/* Fotoğraflı mozaik yerleşimi (4 sütun, 3 satır, boşluksuz):
+   [ Kask 2x2 ][ Mont 1x2 ][ Eldiven ]
+   [          ][          ][ Bot     ]
+   [ Aksesuar 2x1        ][ Tüm Ekipmanlar 2x1 ] */
+.zp-mosaic { grid-auto-rows: 200px; }
+.zp-mosaic-item { box-sizing: border-box; } /* padding kutuyu uzatmasın */
+.zp-mosaic > a:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.zp-mosaic > a:nth-child(2) { grid-column: span 1; grid-row: span 2; }
+.zp-mosaic > a:nth-child(3),
+.zp-mosaic > a:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+.zp-mosaic > a:nth-child(5),
+.zp-mosaic > a:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+
+/* Fotoğraf kutuyu tamamen kaplar; taşan kısım kırpılır */
+.zp-mosaic-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+/* Toplu fotoğrafta ürünler sağda durduğu için o tarafı göster */
+.zp-mosaic-img-sag { object-position: right center; }
+/* İnterkom fotoğrafında kontrol ünitesi üstte; geniş kutuda o kısmı göster */
+.zp-mosaic-img-ust { object-position: center 30%; }
+
+/* Yazının her fotoğrafta okunması için alttan karartma */
+.zp-mosaic-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+.zp-mosaic-item::after { z-index: 2; }
+
+.zp-mosaic-label {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 2;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.zp-mosaic > a:nth-child(1) .zp-mosaic-label { font-size: 2.4rem; }
+
+.zp-mosaic-item:hover .zp-mosaic-img { transform: scale(1.05); }
+
+/* Tablet: 2 sütun, her kutu eşit */
+@media (max-width: 991.98px) {
+  .zp-mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .zp-mosaic > a { grid-column: span 1 !important; grid-row: span 1 !important; }
+  .zp-mosaic > a:nth-child(1) { grid-column: span 2 !important; grid-row: span 2 !important; }
+  .zp-mosaic > a:nth-child(6) { grid-column: span 2 !important; }
+}
+
+/* Telefon: tek sütun, fotoğrafların görünmesi için yeterli yükseklik */
+@media (max-width: 767.98px) {
+  .zp-mosaic { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+  .zp-mosaic > a:nth-child(1),
+  .zp-mosaic > a:nth-child(6) { grid-column: span 1 !important; grid-row: span 1 !important; }
+  .zp-mosaic-label,
+  .zp-mosaic > a:nth-child(1) .zp-mosaic-label { font-size: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zp-mosaic-img { transition: none; }
+  .zp-mosaic-item:hover .zp-mosaic-img { transform: none; }
+}
+
+/* --- Neden biz ikonları --- */
+.zp-feature-icon {
+  width: 76px;
+  height: 76px;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  color: var(--zp-accent-ink);
+  font-size: 1.8rem;
+}
+
+/* --- Akordiyon (SSS) --- */
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: var(--bs-border-color);
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: var(--zp-accent-ink);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(var(--zp-ochre-rgb), 0.2);
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c08a9e' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+}
+
+.accordion .accordion-button::after,
+[data-bs-theme] .accordion-button::after {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c08a9e' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+}
+
+.accordion-button {
+  font-family: var(--zp-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* --- Bülten ve footer --- */
+.zp-bg-forest {
+  background-image: none !important;
+   
+}
+
+.zp-bg-forest .form-control {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--zp-snow);
+}
+
+.zp-bg-forest .form-control::placeholder { color: rgba(238, 232, 234, 0.45); }
+
+.zp-footer {
+  background-color: #070608;
+  color: rgba(238, 232, 234, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.zp-footer h3 { letter-spacing: 0.18em; font-family: var(--zp-font-body); font-size: 0.72rem; }
+
+.zp-footer a:hover { color: var(--zp-ochre); }
+
+/* --- Form elemanları --- */
+.form-control,
+.form-select,
+.input-group-text {
+  border-radius: 0;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--zp-ochre);
+  box-shadow: 0 0 0 0.2rem rgba(var(--zp-ochre-rgb), 0.18);
+}
+
+.form-check-input:checked {
+  background-color: var(--zp-clay);
+  border-color: var(--zp-clay);
+}
+
+.form-check-input:focus {
+  border-color: var(--zp-ochre);
+  box-shadow: 0 0 0 0.2rem rgba(var(--zp-ochre-rgb), 0.2);
+}
+
+.form-range::-webkit-slider-thumb { background-color: var(--zp-ochre); }
+.form-range::-moz-range-thumb { background-color: var(--zp-ochre); }
+
+.progress { border-radius: 0; }
+
+/* --- Sekmeler, breadcrumb, liste, tablo, modal, toast --- */
+.nav-tabs {
+  --bs-nav-link-color: var(--bs-secondary-color);
+  --bs-nav-link-hover-color: var(--zp-accent-ink);
+  --bs-nav-tabs-link-active-color: var(--zp-accent-ink);
+  --bs-nav-tabs-border-radius: 0;
+}
+
+.nav-tabs .nav-link {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-item-active-color: var(--zp-accent-ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.zp-card .list-group-item,
+.zp-card .table { --bs-list-group-bg: transparent; --bs-table-bg: transparent; }
+
+[data-bs-theme="dark"] .table-light {
+  --bs-table-bg: #1a171b;
+  --bs-table-color: var(--zp-ink);
+  --bs-table-border-color: var(--bs-border-color);
+}
+
+.alert { border-radius: 0; }
+
+[data-bs-theme="dark"] .alert-light {
+  --bs-alert-bg: #141215;
+  --bs-alert-color: var(--zp-ink);
+  --bs-alert-border-color: var(--bs-border-color);
+}
+
+.modal-content,
+.offcanvas { border-radius: 0; }
+
+.toast { border-radius: 0; }
+
+.toast.text-bg-success,
+.toast.text-bg-danger {
+  background-color: #141215 !important;
+  color: var(--zp-snow) !important;
+  box-shadow: inset 3px 0 0 var(--zp-ochre), 0 18px 40px -18px rgba(0, 0, 0, 0.7);
+}
+
+.toast.text-bg-danger { box-shadow: inset 3px 0 0 #a85470, 0 18px 40px -18px rgba(0, 0, 0, 0.7); }
+
+/* --- Yukarı çık butonu --- */
+.zp-scrolltop {
+  background-color: var(--zp-forest);
+  color: var(--zp-ochre);
+  border-radius: 50%;
+  width: 47px;
+}
+
+.zp-scrolltop:hover {
+  background-color: var(--zp-ochre);
+  color: var(--zp-forest);
+}
+
+/* --- İstatistik rakamları (Hakkımızda) --- */
+.zp-stat {
+  font-family: var(--zp-font-display);
+  color: var(--zp-accent-ink);
+}
+
+@media (min-width: 1200px) {
+  .zp-navbar form[role="search"] .form-control { min-width: 160px; }
+}
+
+/* --- İletişim haritası --- */
+.zp-map {
+  height: 280px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.zp-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Karanlık modda harita da koyu görünsün */
+[data-bs-theme="dark"] .zp-map iframe {
+  filter: invert(0.9) hue-rotate(180deg) grayscale(0.3);
+}

@@ -1,0 +1,18 @@
+# İşletim Sistemi Dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editör / IDE Dosyaları
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (ileride Sass/derleme aracı eklerseniz)
+node_modules/
+npm-debug.log
+
+# Geçici dosyalar
+*.tmp
+*.bak

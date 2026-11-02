@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOTO-BUYA | Premium Motosiklet Ekipmanları</title>
+  <meta name="description" content="MOTO-BUYA - Premium motosiklet ekipmanları. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link img src="assets/img/favicon.png" rel="icon" type="image/png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+<section img src="assets/img/hero-banner.jpg">
+<body>
+  <div class="zp-topbar">
+    <div class="container">
+      <span><i class="bi bi-truck"></i>5.000₺ üzeri ücretsiz kargo</span>
+      <span class="d-none d-md-inline"><i class="bi bi-shield-check"></i>ECE 22.06 sertifikalı ekipmanlar</span>
+      <span><i class="bi bi-arrow-repeat"></i>14 gün koşulsuz iade</span>
+    </div>
+  </div>
+
+  <!-- ============================= NAVBAR ============================= -->
+  <nav class="navbar navbar-expand-xl navbar-dark zp-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MOTO<span class="zp-brand-dot">-</span>BUYA</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#anaMenu" aria-controls="anaMenu" aria-expanded="false"
+        aria-label="Menüyü aç/kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="anaMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/urunler.html">Ürünler</a></li>
+
+          <!-- Kategoriler menüsü -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kategoriler
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pages/urunler.html?kategori=kask">Kask</a></li>
+              <li><a class="dropdown-item" href="pages/urunler.html?kategori=mont">Mont &amp; Ceket</a></li>
+              <li><a class="dropdown-item" href="pages/urunler.html?kategori=eldiven">Eldiven</a></li>
+              <li><a class="dropdown-item" href="pages/urunler.html?kategori=bot">Bot</a></li>
+              <li><a class="dropdown-item" href="pages/urunler.html?kategori=aksesuar">Aksesuar</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="pages/urunler.html">Tümünü Gör</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="pages/iletisim.html">İletişim</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/hakkimizda.html">Hakkımızda</a></li>
+        </ul>
+
+        <!-- Arama formu -->
+        <form class="d-flex me-2 mb-2 mb-xl-0" role="search" action="pages/urunler.html" method="get">
+          <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Ekipman ara..." aria-label="Ürün ara">
+          <button class="btn btn-sm btn-outline-light" type="submit"><i class="bi bi-search"></i><span class="visually-hidden">Ara</span></button>
+        </form>
+
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-light" data-zp-theme-toggle type="button">Aydınlık Mod</button>
+          <a href="pages/giris.html" class="btn btn-sm btn-outline-light">Giriş Yap</a>
+          <a href="pages/sepet.html" class="btn btn-sm btn-warning position-relative">
+            <i class="bi bi-bag"></i> Sepet
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger zp-cart-badge d-none" data-zp-cart-count>0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================= HERO ============================= -->
+  <header class="zp-hero zp-hero-lg">
+    <img src="assets/img/hero-banner.jpg" class="zp-hero-banner" alt="" aria-hidden="true">
+    <span class="zp-hero-mark" aria-hidden="true">MOTO</span>
+    <div class="container position-relative">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-7">
+          <p class="zp-eyebrow mb-3">Premium Motosiklet Ekipmanları</p>
+          <h1 class="display-4 zp-letter-tight mb-4">Yolun her kıvrımında,<br><em>tarz ve güvenlik</em> bir arada.</h1>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="pages/urunler.html" class="btn btn-warning btn-lg">Koleksiyonu Keşfet <i class="bi bi-arrow-right ms-2"></i></a>
+            <a href="#nasil-calisir" class="btn btn-outline-light btn-lg">Kategoriler</a>
+          </div>
+          <ul class="zp-hero-meta">
+            <li><i class="bi bi-shield-check"></i>ECE 22.06 Sertifikalı</li>
+            <li><i class="bi bi-geo-alt"></i>81 İle Kargo</li>
+            <li><i class="bi bi-award"></i>Orijinal Ürün Garantisi</li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <!-- Bootstrap CAROUSEL bileşeni -->
+          <div id="anaCarousel" class="carousel slide zp-card" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#anaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slayt 1"></button>
+              <button type="button" data-bs-target="#anaCarousel" data-bs-slide-to="1" aria-label="Slayt 2"></button>
+              <button type="button" data-bs-target="#anaCarousel" data-bs-slide-to="2" aria-label="Slayt 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="zp-card-img-wrap zp-slide">
+                  <span class="zp-slide-emoji">🪖</span>
+                  <span class="zp-slide-label">Kask Koleksiyonu</span>
+                  <span class="zp-slide-sub">Karbon · Modüler · Full-Face</span>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="zp-card-img-wrap zp-slide">
+                  <span class="zp-slide-emoji">🧥</span>
+                  <span class="zp-slide-label">Deri Montlar</span>
+                  <span class="zp-slide-sub">Racing · Touring · Urban</span>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="zp-card-img-wrap zp-slide">
+                  <span class="zp-slide-emoji">🧤</span>
+                  <span class="zp-slide-label">Korumalı Eldivenler</span>
+                  <span class="zp-slide-sub">Karbon Knuckle · Dokunmatik</span>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#anaCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Önceki</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#anaCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Sonraki</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== KATEGORİ MOZAİĞİ (SAF CSS GRID) ===================== -->
+  <section class="zp-section" id="nasil-calisir">
+    <div class="container">
+      <p class="zp-eyebrow mb-2">Koleksiyonlar</p>
+      <h2 class="zp-section-title h3">Kategorilere Göz Atın</h2>
+      <!-- Her kutu: arka planda kategori fotoğrafı + üstünde karartma + yazı.
+           Fotoğraflar assets/img/kategoriler/ klasöründe (WebP, web için küçültülmüş). -->
+      <div class="zp-mosaic">
+        <a href="pages/urunler.html?kategori=kask" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/kask.webp" class="zp-mosaic-img" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Kask</span>
+        </a>
+        <a href="pages/urunler.html?kategori=mont" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/mont.webp" class="zp-mosaic-img" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Mont &amp; Ceket</span>
+        </a>
+        <a href="pages/urunler.html?kategori=eldiven" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/eldiven.webp" class="zp-mosaic-img" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Eldiven</span>
+        </a>
+        <a href="pages/urunler.html?kategori=bot" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/bot.webp" class="zp-mosaic-img" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Bot</span>
+        </a>
+        <a href="pages/urunler.html?kategori=aksesuar" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/aksesuar-interkom.webp" class="zp-mosaic-img zp-mosaic-img-ust" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Aksesuar &amp; İnterkom</span>
+        </a>
+        <a href="pages/urunler.html" class="zp-mosaic-item">
+          <img src="assets/img/kategoriler/tum-ekipmanlar.webp" class="zp-mosaic-img zp-mosaic-img-sag" alt="" loading="lazy">
+          <span class="zp-mosaic-label">Tüm Ekipmanlar</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ÖNE ÇIKAN ÜRÜNLER (BOOTSTRAP GRID + KARTLAR) ===================== -->
+  <section class="zp-section bg-body-tertiary">
+    <div class="container">
+      <p class="zp-eyebrow mb-2">Sezonun Seçkisi</p>
+      <div class="d-flex justify-content-between align-items-end zp-section-title">
+        <h2 class="h3 mb-0">Öne Çıkan Ürünler</h2>
+        <a href="pages/urunler.html" class="btn btn-sm btn-outline-dark">Tümünü Gör &rarr;</a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+        <div class="col">
+          <div class="card zp-card h-100">
+            <div class="zp-card-img-wrap"><img src="assets/img/urunler/karbon-full-face-kask.webp" class="zp-card-img" alt="Karbon Fiber Full-Face Kask" width="800" height="800" loading="lazy"></div>
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-warning align-self-start mb-2">Çok Satan</span>
+              <h3 class="h6 card-title"><a href="pages/urun-detay.html?id=v001" class="text-decoration-none text-reset stretched-link">Karbon Fiber Full-Face Kask</a></h3>
+              <p class="card-text text-muted small flex-grow-1">ECE 22.06 sertifikalı, 1.250 g ultra hafif karbon kabuk.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="zp-price">₺12.450</span>
+                <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v001" data-zp-gorsel="assets/img/urunler/karbon-full-face-kask.webp" data-zp-fiyat="12450" data-zp-emoji="🪖" data-zp-urun-adi="Karbon Fiber Full-Face Kask">+ Sepet</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card zp-card h-100">
+            <div class="zp-card-img-wrap"><img src="assets/img/urunler/deri-racing-mont.webp" class="zp-card-img" alt="Deri Racing Mont" width="800" height="800" loading="lazy"></div>
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-danger align-self-start mb-2">-%20</span>
+              <h3 class="h6 card-title"><a href="pages/urun-detay.html?id=v002" class="text-decoration-none text-reset stretched-link">Deri Racing Mont</a></h3>
+              <p class="card-text text-muted small flex-grow-1">Tam tahıl dana derisi, CE Level 2 omuz ve dirsek koruması.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><span class="zp-price">₺9.600</span> <span class="zp-price-old">₺12.000</span></span>
+                <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v002" data-zp-gorsel="assets/img/urunler/deri-racing-mont.webp" data-zp-fiyat="9600" data-zp-emoji="🧥" data-zp-urun-adi="Deri Racing Mont">+ Sepet</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card zp-card h-100">
+            <div class="zp-card-img-wrap"><img src="assets/img/urunler/karbon-korumali-eldiven.webp" class="zp-card-img" alt="Karbon Korumalı Eldiven" width="800" height="800" loading="lazy"></div>
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-info align-self-start mb-2">Yeni</span>
+              <h3 class="h6 card-title"><a href="pages/urun-detay.html?id=v003" class="text-decoration-none text-reset stretched-link">Karbon Korumalı Eldiven</a></h3>
+              <p class="card-text text-muted small flex-grow-1">Keçi derisi, karbon knuckle ve dokunmatik ekran uyumlu parmak uçları.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="zp-price">₺2.750</span>
+                <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v003" data-zp-gorsel="assets/img/urunler/karbon-korumali-eldiven.webp" data-zp-fiyat="2750" data-zp-emoji="🧤" data-zp-urun-adi="Karbon Korumalı Eldiven">+ Sepet</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card zp-card h-100">
+            <div class="zp-card-img-wrap"><img src="assets/img/urunler/su-gecirmez-touring-bot.webp" class="zp-card-img" alt="Su Geçirmez Touring Bot" width="800" height="800" loading="lazy"></div>
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-secondary align-self-start mb-2">Sınırlı Stok</span>
+              <h3 class="h6 card-title"><a href="pages/urun-detay.html?id=v004" class="text-decoration-none text-reset stretched-link">Su Geçirmez Touring Bot</a></h3>
+              <p class="card-text text-muted small flex-grow-1">Gore-Tex membran, ayak bileği ve topuk koruması.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="zp-price">₺7.890</span>
+                <button class="btn btn-sm btn-outline-success position-relative" style="z-index:2" data-zp-sepete-ekle data-zp-urun-id="v004" data-zp-gorsel="assets/img/urunler/su-gecirmez-touring-bot.webp" data-zp-fiyat="7890" data-zp-emoji="🥾" data-zp-urun-adi="Su Geçirmez Touring Bot">+ Sepet</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEDEN BİZ (ICON + COL) ===================== -->
+  <section class="zp-section">
+    <div class="container">
+      <p class="zp-eyebrow mb-2">Ayrıcalıklarımız</p>
+      <h2 class="zp-section-title h3">Neden MOTO.BUYA?</h2>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-shield-check"></i></div>
+          <h3 class="h5">Sertifikalı Güvenlik</h3>
+          <p class="text-muted small">Tüm kask ve korumalarımız ECE / CE standartlarına uygundur.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-truck"></i></div>
+          <h3 class="h5">Hızlı ve Güvenli Kargo</h3>
+          <p class="text-muted small">Kasklar darbe emici özel kutularla, sigortalı olarak gönderilir.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="zp-feature-icon mb-3"><i class="bi bi-arrow-repeat"></i></div>
+          <h3 class="h5">14 Gün İade</h3>
+          <p class="text-muted small">Beden uymazsa ücretsiz değişim, memnun kalmazsanız koşulsuz iade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SSS (ACCORDION) ===================== -->
+  <section class="zp-section bg-body-tertiary">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="zp-eyebrow mb-2">Yardım</p>
+          <h2 class="zp-section-title h3">Sıkça Sorulan Sorular</h2>
+          <!-- Bootstrap ACCORDION bileşeni -->
+          <div class="accordion" id="sssAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sss1">
+                  Ürünler sertifikalı ve orijinal mi?
+                </button>
+              </h3>
+              <div id="sss1" class="accordion-collapse collapse show" data-bs-parent="#sssAccordion">
+                <div class="accordion-body">Evet, mağazamızdaki tüm kasklar ECE 22.06, koruyucu ekipmanlar ise CE standartlarına uygun orijinal ürünlerdir.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sss2">
+                  Kargo süresi ne kadar?
+                </button>
+              </h3>
+              <div id="sss2" class="accordion-collapse collapse" data-bs-parent="#sssAccordion">
+                <div class="accordion-body">Standart kargo 1-3 iş günü içinde teslim edilir. Sepet sayfasında ücretsiz kargo barını görebilirsiniz.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sss3">
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </button>
+              </h3>
+              <div id="sss3" class="accordion-collapse collapse" data-bs-parent="#sssAccordion">
+                <div class="accordion-body">lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BÜLTEN (NEWSLETTER) FORMU ===================== -->
+  <section class="zp-section zp-bg-forest text-light">
+    <div class="container text-center">
+      <p class="zp-eyebrow mb-2" style="color: var(--zp-ochre)">Bülten</p>
+      <h2 class="h3">Yeni koleksiyonlardan ilk siz haberdar olun</h2>
+      <p class="zp-max-w-640 mx-auto" style="color: rgba(238,232,234,.75)">Ayda bir e-posta, spam yok. Sadece yeni sezon ürünleri ve abonelere özel indirimler.</p>
+      <form class="row g-2 justify-content-center zp-max-w-640 mx-auto needs-validation" novalidate>
+        <div class="col-8 col-sm-auto flex-grow-1">
+          <label for="bultenEmail" class="visually-hidden">E-posta adresiniz</label>
+          <input type="email" class="form-control" id="bultenEmail" placeholder="ornek@eposta.com" required>
+          <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi girin.</div>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-warning" type="submit">Abone Ol</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="zp-footer pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h2 class="h4" style="font-family: var(--zp-font-display); color:#fff; letter-spacing:.14em;">MOTO<span class="zp-brand-dot">.</span>BUYA</h2>
+          <p class="small">lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="h6 text-uppercase text-white-50">Mağaza</h3>
+          <ul class="list-unstyled small">
+            <li><a href="pages/urunler.html">Tüm Ürünler</a></li>
+            <li><a href="pages/sepet.html">Sepetim</a></li>
+            <li><a href="pages/giris.html">Hesabım</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="h6 text-uppercase text-white-50">Kurumsal</h3>
+          <ul class="list-unstyled small">
+            <li><a href="pages/hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="pages/iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h3 class="h6 text-uppercase text-white-50">Bülten</h3>
+          <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="small text-center mb-0 text-white-50">&copy; 2026 MOTO.BUYA — egerzz.</p>
+    </div>
+  </footer>
+
+  <!-- Yukarı çık butonu -->
+  <button class="zp-scrolltop" aria-label="Sayfa başına dön">↑</button>
+
+  <!-- Toast bildirimlerinin ekleneceği sabit konteyner -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;"></div>
+
+  <!-- Bootstrap Bundle JS + site script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

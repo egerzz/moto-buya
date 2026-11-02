@@ -13,7 +13,7 @@ Kask, mont, eldiven, bot ve aksesuar satan bir motosiklet ekipmanı mağazası i
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 <!-- Siteyi GitHub Pages'te yayınladıktan sonra aşağıdaki satırı kendi adresinle güncelle:
-**[Canlı Demo](https://KULLANICI-ADIN.github.io/REPO-ADI/)**
+[Canlı Demo](https://egerzz.github.io/moto-buya/)
 -->
 
 </div>
